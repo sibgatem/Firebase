@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_auth/screens/email_password_auth_screen.dart';
 import 'package:flutter_auth/screens/guest_auth_screen.dart';
 import 'package:flutter_auth/screens/profile_screen.dart';
+import 'package:flutter_auth/screens/pictures_screen.dart';
 
 import 'firebase_options.dart';
 
@@ -66,6 +67,14 @@ class MyApp extends StatelessWidget {
                       ),
                       child: const Text('Анонимная'),
                     ),
+                    ElevatedButton(
+                      onPressed: () {
+                        _navigator.currentState!.pushReplacementNamed(
+                          "/pictures",
+                        );
+                      },
+                      child: const Text('Фотки'),
+                    ),
                   ],
                 );
               },
@@ -77,6 +86,7 @@ class MyApp extends StatelessWidget {
         "/auth/email-password": (ctx) => EmailPasswordAuthScreen(),
         "/auth/guest": (ctx) => GuestAuthScreen(),
         '/profile': (ctx) => ProfileScreen(),
+        "/pictures": (ctx) => PicturesScreen(),
       },
       initialRoute: "/auth/email-password",
     );
